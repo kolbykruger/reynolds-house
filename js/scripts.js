@@ -1,3 +1,90 @@
+//Sticky Booking bar
+document.addEventListener('DOMContentLoaded', function() {
+    const booking = document.querySelector('.booking-bar');
+    const bookingOffset = booking.offsetTop;
+
+    console.log(bookingOffset)
+
+    function fixedNav () {
+        if (window.scrollY >= bookingOffset) {
+            booking.classList.add('fixed');
+        } else {
+            booking.classList.remove('fixed');
+        }
+    }
+
+    window.addEventListener('scroll', fixedNav);
+})
+
+//Date Picker
+var checkIn = $('.booking-bar .booking-checkin input').datepicker({
+    language: 'en',
+    dateFormat: 'M d, yyyy',
+    minDate: new Date(),
+    onSelect: function(fd, d, picker) {
+        $(this).val(fd);
+        if (!d) {
+            $('.booking-bar .booking-checkin').removeClass('full');
+        }
+        else {
+            $('.booking-bar .booking-checkin').addClass('full');
+        }
+    }
+}).data('datepicker');
+
+var checkOut = $('.booking-bar .booking-checkout input').datepicker({
+    language: 'en',
+    dateFormat: 'M d, yyyy',
+    minDate: new Date(),
+    onSelect: function(fd, d, picker) {
+        $(this).val(fd);
+        if (!d) {
+            $('.booking-bar .booking-checkout').removeClass('full');
+        }
+        else {
+            $('.booking-bar .booking-checkout').addClass('full');
+        }
+    }
+}).data('datepicker');
+
+$('.booking-bar .booking-guests select').on('change', function() {
+    var value = $(this).val();
+    if (value === '') {
+        $(this).parent().removeClass('full')
+    } else {
+        $(this).parent().addClass('full')
+    }
+});
+
+//Guest Rooms Slider
+$('.guest-rooms .contents').slick({
+  autoplay: true,
+  autoplaySpeed: 5000,
+  dots: false,
+  infinite: true,
+  fade: false,
+  speed: 300,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  prevArrow:'<button class="prev" title="Previous Slide"><i class="fal fa-chevron-left"></i></button>',
+  nextArrow:'<button class="next" title="Next Slide"><i class="fal fa-chevron-right"></i></button>'
+});
+
+//Testimonials
+$('.testimonials .contents').slick({
+  autoplay: true,
+  autoplaySpeed: 5000,
+  dots: false,
+  infinite: true,
+  fade: false,
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  adaptiveHeight: 1,
+  prevArrow:'<button class="prev" title="Previous Slide"><i class="fal fa-chevron-left"></i></button>',
+  nextArrow:'<button class="next" title="Next Slide"><i class="fal fa-chevron-right"></i></button>'
+});
+
 // Links return false
 $('a:not(.force), button:not(.force), input[type="submit"]:not(.force)').click(function() {
     return false
