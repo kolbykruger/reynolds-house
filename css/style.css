@@ -7,17 +7,15 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {d
 html{font-size: 62.5%; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;}
 html[lang="en"]{opacity:0;}
 html.wf-active,html.wf-inactive{opacity: 1; transition: opacity .4s ease-out;}
-body{color: #000; background: #fff; font-family: 'Unna', serif; font-size: 1.6rem;}
-p{font-size: 1.6rem; margin: 0 0 16px 0; font-weight: 400; line-height: 1.6;}
+body{color: #000; background: #fff; font-family: 'Unna', serif; font-size: 1.8rem;}
+p{font-size: 1.8rem; margin: 0 0 16px 0; font-weight: 400; line-height: 1.6;}
 p:last-of-type{margin: 0;}
 a{color: #b5a642;}
-ul{font-size: 1.6rem; padding: 0 0 22px 30px; font-weight: 400; line-height: 1.6; list-style: outside disc; overflow: hidden;}
-ol{font-size: 1.6rem; padding: 0 0 22px 30px; font-weight:  400; line-height: 1.6; overflow: hidden;}
+ul{font-size: 1.8rem; padding: 0 0 22px 30px; font-weight: 400; line-height: 1.6; list-style: outside disc; overflow: hidden;}
+ol{font-size: 1.8rem; padding: 0 0 22px 30px; font-weight:  400; line-height: 1.6; overflow: hidden;}
 li{position: relative;}
 h1{font-size: calc(2.5rem + 1.5vw); margin: 0 0 10px; line-height: 140%; font-weight: 400; display: block; width: 100%;}
 h2{font-size: calc(2.0rem + 1vw); margin: 0 0 10px; line-height: 140%; font-weight: 300; display: block;  width: 100%;}
-h2 > i {color: #b5a642;}
-h2 > a {text-decoration: none;}
 h3{font-size: calc(1.8rem + .8vw); margin: 0 0 10px; font-weight: 300; width: 100%;}
 blockquote{width: 80%; max-width:700px; margin: 50px auto; font-style: italic; color: #555; padding: 1.2em 1.2em 1.2em 75px; border-left: 8px solid #ef4538; line-height: 1.6; position: relative; background: #eeeeee;}
 blockquote::before{font-family:Arial; content:"\201C"; color: #b5a642; font-size:4em; position: absolute; left: 10px; top:-10px;}
@@ -216,6 +214,16 @@ button.button, input[type="submit"].button {cursor: pointer; font-family: inheri
     .content img{float: none !important; margin: 0 auto !important;}
     }
 
+#home h1 {position: relative; display: inline;}
+#home h1 > i {color: #b5a642;}
+#home h1 > a {text-decoration: none;}
+#home h1::before,
+#home h1::after {position: absolute; top: 50%; width: 30px; height: 10px; transform: translateY(-5%); background-size: cover;}
+#home h1::before {content: ''; background-image: url(../images/decor/f-1.svg); left: calc(100% + 0.25em);}
+#home h1::after {content: '';background-image: url(../images/decor/f-2.svg); right: calc(100% + 0.25em);}
+#home h1.white::before {background-image: url(../images/decor/fw-1.svg);}
+#home h1.white::after {background-image: url(../images/decor/fw-2.svg);}
+
 .content_columns{display: flex; flex-flow:row wrap; justify-content: space-between;}
 .content_columns .main{padding: 0 10px 0 0; max-width: 800px;}
 .content_columns .sidebar {padding: 0 0 0 10px; width: 300px;}
@@ -230,8 +238,12 @@ button.button, input[type="submit"].button {cursor: pointer; font-family: inheri
     }
 
 /*Intro Text*/
-.intro_text{text-align: center; width:100%; padding:10px; margin: 7em auto 3em;}
-.intro_text .contents {max-width:960px; margin: 0 auto;}
+.intro_text{width:100%; padding:10px; margin: 7em auto 3em;}
+.intro_text .contents {max-width: 1200px; margin: 0 auto; display: flex; align-items: center;}
+.intro_text .info {margin-left: 3em;}
+.intro_text h1::after,
+.intro_text h1::before {display: none;}
+.intro_text .photo {min-width: 350px; padding: 0.5em; border: 1px solid #b5a642;}
 .intro_text .buttons {margin: 1em 0;}
     @media (max-width: 768px) {
     .intro_text{margin: 80px auto 0;}
@@ -264,14 +276,20 @@ button.button, input[type="submit"].button {cursor: pointer; font-family: inheri
 .booking-bar.fixed .item.full select {padding: 1.5em 1.5em 0.5em;}
 
 /* Guest Rooms */
-.guest-rooms {margin: 6em 0;}
-.guest-rooms h2 {text-align: center;}
+.guest-rooms {margin: 6em 0; text-align: center;}
+.guest-rooms h2 {}
 .guest-rooms .contents {max-width: 1200px; margin: 0 auto;}
-.guest-rooms .item {display: block; text-decoration: none; color: inherit; padding: 1em; text-align: center;}
+.guest-rooms .item {display: block; text-decoration: none; color: inherit; padding: 1em;}
 .guest-rooms .item .image {overflow: hidden; box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);}
 .guest-rooms .item img {width: 100%; transition: 150ms ease-in-out;}
 .guest-rooms .item h3 {margin: 0.25em 0;}
 .guest-rooms .item:hover img {transform: scale(1.08);}
+
+/* Banner */
+.banner {position: relative; background-image: url(../images/wood.jpg); background-size: cover; background-position: center; z-index: 1;}
+.banner::before {content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: -1;}
+.banner .contents {max-width: 1000px; margin: 0 auto; padding: 6em 0; text-align: center; color: #fff;}
+.banner .buttons {margin: 1em 0;}
 
 /*Features*/
 .features {max-width: 1200px; margin: 6em auto;}
@@ -285,8 +303,8 @@ button.button, input[type="submit"].button {cursor: pointer; font-family: inheri
 .features .item:hover img {transform: scale(1.08);}
 
 /*Updates*/
-.updates {max-width: 1200px; margin: 6em auto;}
-.updates h2 {text-align: center;}
+.updates {max-width: 1200px; margin: 6em auto; text-align: center;}
+.updates h2 {}
 .updates .contents {display: flex; flex-flow: row wrap;}
 .updates .item {position: relative; overflow: hidden; margin: 1em; width: calc(33.333% - 2em);}
 .updates .item a{text-decoration: none; display: block; color: inherit;}
@@ -300,7 +318,7 @@ button.button, input[type="submit"].button {cursor: pointer; font-family: inheri
 /* Testimonials Slider */
 .testimonials {background: #f1f2f3; padding: 3em 0;}
 .testimonials .contents {max-width: 960px; margin: 0 auto;}
-.testimonials .item {}
+.testimonials .item {text-align: center;}
 .testimonials .item .quote {font-size: 2.6rem; margin: 1em 0; line-height: 1.6;}
 .testimonials .item .person {color: #b5a542; text-align: center; font-size: 2.2rem;}
 
@@ -348,7 +366,7 @@ button.button, input[type="submit"].button {cursor: pointer; font-family: inheri
     }
 
 /*Instafeed*/
-.instagram_widget{margin: 3em auto; width: 100%; max-width: 1200px;}
+.instagram_widget{margin: 3em auto; width: 100%; max-width: 1200px; text-align: center;}
 .instagram_widget .heading{width: 100%; margin:0 0 10px 0; text-align: center;}
     @media (max-width: 768px) {
     .instagram_widget{margin: 80px auto 0;}
