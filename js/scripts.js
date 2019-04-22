@@ -64,7 +64,7 @@ $('.guest-rooms .contents').slick({
   infinite: true,
   fade: false,
   speed: 300,
-  slidesToShow: 3,
+  slidesToShow: 4,
   slidesToScroll: 1,
   prevArrow:'<button class="prev" title="Previous Slide"><i class="fal fa-chevron-left"></i></button>',
   nextArrow:'<button class="next" title="Next Slide"><i class="fal fa-chevron-right"></i></button>'

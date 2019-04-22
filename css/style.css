@@ -280,6 +280,7 @@ button.button, input[type="submit"].button {cursor: pointer; font-family: inheri
 .guest-rooms h2 {}
 .guest-rooms .contents {max-width: 1200px; margin: 0 auto;}
 .guest-rooms .item {display: block; text-decoration: none; color: inherit; padding: 1em;}
+.guest-rooms .item .desc {display: none;}
 .guest-rooms .item .image {overflow: hidden; box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);}
 .guest-rooms .item img {width: 100%; transition: 150ms ease-in-out;}
 .guest-rooms .item h3 {margin: 0.25em 0;}
